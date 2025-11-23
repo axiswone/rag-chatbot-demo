@@ -1,0 +1,103 @@
+<!-- NOTE: Zero-dependency fallback kept for illustrating how to embed the FastAPI /chat endpoint in a static page. Primary UI lives in Streamlit. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RAG Chatbot Demo</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; background: #f9f9f9; max-width: 800px; margin: 0 auto; padding: 2rem; }
+    h1 { color: #333; }
+    #chatbox { width: 100%; height: 400px; border: 1px solid #ccc; padding: 1rem; overflow-y: auto; background: #fff; border-radius: 4px; }
+    .user { color: #0077cc; margin: 0.5rem 0; }
+    .bot { color: #444; margin: 0.5rem 0; }
+    .error { color: #dc3545; }
+    .loading { color: #666; font-style: italic; }
+    .input-group { display: flex; gap: 0.5rem; margin-top: 1rem; }
+    input, button { padding: 0.5rem; font-size: 1rem; border-radius: 4px; }
+    input { flex-grow: 1; border: 1px solid #ccc; }
+    button { background: #0077cc; color: white; border: none; cursor: pointer; min-width: 80px; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    .status { font-size: 0.9rem; color: #666; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>🧠 RAG Chatbot Demo</h1>
+  <div id="chatbox"></div>
+  <div class="input-group">
+    <input type="text" id="query" placeholder="Type your question..." onkeypress="handleKeyPress(event)" />
+    <button id="sendButton" onclick="sendQuery()">Send</button>
+  </div>
+  <div id="status" class="status"></div>
+
+  <script>
+    const chatbox = document.getElementById("chatbox");
+    const queryInput = document.getElementById("query");
+    const sendButton = document.getElementById("sendButton");
+    const statusDiv = document.getElementById("status");
+    
+    function setLoading(isLoading) {
+      sendButton.disabled = isLoading;
+      queryInput.disabled = isLoading;
+      if (isLoading) {
+        statusDiv.textContent = "Processing your request...";
+      } else {
+        statusDiv.textContent = "";
+      }
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === "Enter" && !queryInput.disabled) {
+        sendQuery();
+      }
+    }
+
+    function appendMessage(role, text, isError = false) {
+      const div = document.createElement("div");
+      div.className = isError ? "bot error" : role;
+      div.innerHTML = `<strong>${role}:</strong> ${text}`;
+      chatbox.appendChild(div);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    async function sendQuery() {
+      const userQuery = queryInput.value.trim();
+      if (!userQuery) return;
+
+      appendMessage("user", userQuery);
+      queryInput.value = "";
+      setLoading(true);
+
+      const payload = {
+        user_id: "demo_user",
+        session_id: "demo123",
+        user_query: userQuery
+      };
+
+      try {
+        const res = await fetch("http://localhost:8000/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        
+        if (!res.ok) {
+          const errorData = await res.json();
+          throw new Error(errorData.detail || "Server error");
+        }
+        
+        const data = await res.json();
+        appendMessage("bot", data.response || "No response received.");
+      } catch (err) {
+        appendMessage("bot", "⚠️ Error: " + err.message, true);
+        console.error("Chat error:", err);
+      } finally {
+        setLoading(false);
+        queryInput.focus();
+      }
+    }
+
+    // Focus input on load
+    queryInput.focus();
+  </script>
+</body>
+</html>

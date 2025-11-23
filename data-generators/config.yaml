@@ -1,0 +1,82 @@
+# Data Generation Configuration
+# This file controls how synthetic data is generated for the RAG chatbot demo
+
+data_generation:
+  # Domain selection - determines the type of content generated
+  domain: "tech"  # Options: tech, healthcare, finance, ecommerce, general
+  
+  # Volume of data to generate
+  volume: "medium"  # Options: small, medium, large
+  
+  # Complexity level of generated content
+  complexity: "intermediate"  # Options: basic, intermediate, advanced
+  
+  # Output settings
+  output_dir: "../backend/data"
+  overwrite_existing: false
+  
+  # Content settings
+  language: "en"  # Options: en, es, fr, de
+  include_examples: true
+  include_troubleshooting: true
+  
+  # Domain-specific settings
+  tech:
+    focus_areas: ["api", "database", "authentication", "deployment", "monitoring"]
+    tech_stack: ["python", "fastapi", "postgresql", "docker", "kubernetes"]
+    common_issues: ["timeout", "authentication", "database_connection", "deployment_failure"]
+    
+  healthcare:
+    focus_areas: ["patient_records", "hipaa", "medical_protocols", "compliance", "telemedicine"]
+    specialties: ["cardiology", "oncology", "emergency", "pediatrics", "radiology"]
+    compliance_standards: ["hipaa", "fda", "joint_commission", "meaningful_use"]
+    
+  finance:
+    focus_areas: ["payments", "risk_management", "compliance", "fraud_detection", "trading"]
+    products: ["banking", "investment", "insurance", "fintech", "cryptocurrency"]
+    regulations: ["pci_dss", "sox", "basel_iii", "gdpr", "aml"]
+    
+  ecommerce:
+    focus_areas: ["inventory", "orders", "payments", "customer_service", "analytics"]
+    platforms: ["shopify", "woocommerce", "custom", "marketplace", "mobile"]
+    business_models: ["b2c", "b2b", "marketplace", "subscription", "dropshipping"]
+
+# Data structure settings
+data_structure:
+  docs:
+    enabled: true
+    chunk_size: 1000
+    chunk_overlap: 200
+    formats: ["md", "txt"]
+    min_docs: 5
+    max_docs: 50
+    
+  tickets:
+    enabled: true
+    severity_levels: ["low", "medium", "high", "critical"]
+    status_types: ["open", "in_progress", "resolved", "closed"]
+    priority_levels: ["p1", "p2", "p3", "p4"]
+    min_tickets: 5
+    max_tickets: 50
+    
+  configs:
+    enabled: true
+    formats: ["yaml", "json", "ini"]
+    validation_enabled: true
+    min_configs: 5
+    max_configs: 20
+    
+  chat_history:
+    enabled: true
+    conversation_length: "medium"  # Options: short, medium, long
+    user_types: ["developer", "admin", "end_user", "support"]
+    min_conversations: 3
+    max_conversations: 20
+
+# Generation settings
+generation:
+  use_faker: true
+  realistic_data: true
+  include_metadata: true
+  randomize_content: true
+  seed: null  # Set to a number for reproducible results
