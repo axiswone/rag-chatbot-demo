@@ -17,7 +17,9 @@ We use [GitHub Discussions](https://github.com/Uma-Ramanathan-1/rag-chatbot-demo
 
 ## What This Demo Showcases
 
+- **End-to-end RAG pipeline:** Demonstrates the complete Retrieval-Augmented Generation flow—data ingestion, chunking, FAISS indexing, retriever orchestration, and grounded response synthesis—so you can trace every answer back to its sources.
 - **Multi-source retrieval:** A LangChain `MultiRetrievalQAChain` fans out across docs, tickets, configs, and semantic chat history so every answer is grounded in multiple evidence types.
+- **Embedding model:** Uses the HuggingFace `sentence-transformers/all-MiniLM-L6-v2` encoder for ingestion and query-time retrieval.
 - **Persona-aware prompts:** Requests include role, activity, and preference hints, demonstrating how to tailor LLM tone without custom models.
 - **Streamlit operations console:** Generate data, upload real files, rebuild indexes, trim history, and chat--all from a single dashboard that mirrors the CLI flows.
 - **Synthetic + bring-your-own data ingestion:** Faker-powered generators let you practice without sensitive data, while the same pipeline happily indexes your actual Markdown/JSON/YAML assets.
